@@ -1,0 +1,186 @@
+* {
+    box-sizing: border-box;
+    cursor: url("images/fraiserose.png"), pointer;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  .pacifico-regular {
+    font-family: "Pacifico", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .dashed {
+    --b: 5px;  /* border thickness */
+    --s: 30px; /* size of the dashes */
+    --c1: #987D9A;
+    --c2: #EECEB9;
+    
+    width: 250px;
+    aspect-ratio: 1;
+    position: relative;
+  }
+  .dashed::before {
+    content:"";
+    position: absolute;
+    inset: 0;
+    padding: var(--b);
+    background: 
+      repeating-conic-gradient(var(--c1) 0 25%,var(--c2) 0 50%) 
+      0 0/var(--s) var(--s) round;
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+  }
+  
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    background: #ffc4e4;
+  }
+
+  .todobox {
+    width: 400px; /* Définit une largeur limitée */
+    margin: 50px auto; /* Centre horizontalement et ajoute un espace en haut */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre les éléments enfants */
+    background: rgba(255, 255, 255, 0.8); /* Léger fond blanc semi-transparent */
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+  }
+
+  .titretodo {
+    width: 100%;
+    display: block;
+    padding: 5px 10px 5px 10px;
+    font-family: "Pacifico", serif !important;
+    font-size: xx-large !important;
+    border-radius: 30px;
+  }
+
+  /* Remove margins and padding from the list */
+ul {
+    display: inline-flexbox;
+    box-sizing: border-box;
+    width: 100%;
+    list-style-type: none; /* Supprime les puces */
+    margin: 0;
+    padding: 5px;
+  }
+
+  /* Style the list items */
+ul li {
+    decoration: none;
+    cursor: url("images/fraise.png"), pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background: #E4E0E1;
+    font-size: 18px;
+    transition: 0.2s;
+      /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Darker background-color on hover */
+ul li:hover {
+    background: #B7B7B7;
+  }
+
+  /* When clicked on, add a background color and strike out text */
+ul li.checked {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
+  }
+
+  /*test de correction pour que ça fonctionne*/
+  .checked {
+    text-decoration: line-through; /* Barrer le texte */
+    background-color: #d3ffd3; /* Optionnel : changer la couleur de fond */
+}
+  /* Add a "checked" mark when clicked on */
+ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+  }
+
+  /* Style the close button */
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+  }
+
+  .close:hover {
+    background-color: #f44336;
+    color: white;
+  }
+
+  /* Style the header */
+.header {
+    width: 100%;
+    height:175px;
+    background-color: #8a5fad;
+    background-image: url(images/kuromibackground.jpg);
+    background-position: 50% 50%;
+    aspect-ratio: auto;
+    color: white;
+    text-align: center;
+    display: inline-block;
+  }
+
+/* Clear floats after the header */
+.header:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* Style the input */
+input {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    width: 75%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+  }
+
+  /* Style the "Add" button */
+.addBtn {
+    padding: 10px;
+    width: 25%;
+    background: #d9d9d9;
+    color: #555;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 0;
+  }
+  
+  .addBtn:hover {
+    background-color: #bbb;
+  }
+
+
